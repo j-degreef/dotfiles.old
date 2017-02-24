@@ -128,38 +128,39 @@ fi
 alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
 # jdegr control-s is used by bash forward history search
-# but is mapping by default to stop
+# but is mapping by default to scroll lock
+# ^s scroll lock, ^q disable scroll lock, -ixon disable both
 if [ "$TERM" != "dumb" ];
 then
-  stty stop '^p'
+  stty -ixon
 fi
 
 # jdegr set rxvt title
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-# Show the currently running command in the terminal title:
-# http://www.davidpashley.com/articles/xterm-titles-with-bash.html
-    show_command_in_title_bar()
-    {
-#        set -o functrace
-        case "$BASH_COMMAND" in
-            "promptcmd")
-                # The command is trying to set the title bar as well;
-                # this is most likely the execution of $PROMPT_COMMAND.
-                # In any case nested escapes confuse the terminal, so don't
-                # output them.
-                ;;
-            *)
-	     echo -ne "\[\033]0;\]:${USER}@${HOSTNAME}: `pwd`: ${BASH_COMMAND}\007"
-	     trap show_command_in_title_bar DEBUG
-                ;;
-        esac
-    }
-    ;;
-*)
-    ;;
-esac
+#case "$TERM" in
+#xterm*|rxvt*)
+## Show the currently running command in the terminal title:
+## http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+#    show_command_in_title_bar()
+#    {
+##        set -o functrace
+#        case "$BASH_COMMAND" in
+#            "promptcmd")
+#                # The command is trying to set the title bar as well;
+#                # this is most likely the execution of $PROMPT_COMMAND.
+#                # In any case nested escapes confuse the terminal, so don't
+#                # output them.
+#                ;;
+#            *)
+#	     echo -ne "\[\033]0;\]:${USER}@${HOSTNAME}: `pwd`: ${BASH_COMMAND}\007"
+#	     trap show_command_in_title_bar DEBUG
+#                ;;
+#        esac
+#    }
+#    ;;
+#*)
+#    ;;
+#esac
 
 # jdegr for Powerline status
 #if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
@@ -167,5 +168,7 @@ esac
 #fi
 
 # Liquidprompt
-source src/liquidprompt/liquidprompt
+source ~/bin/liquidprompt
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

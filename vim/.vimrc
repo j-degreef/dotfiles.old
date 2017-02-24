@@ -22,7 +22,7 @@ let g:airline_theme='papercolor'
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 
 " keybindings
-let mapleader=","
+let mapleader="<"
 nnoremap <C-Home> gg
 nnoremap <C-End> G<End>
 inoremap <C-Home> <Esc>ggi
@@ -55,10 +55,12 @@ fun! SetupVAM()
 
   " This provides the VAMActivate command, you could be passing plugin names, too
 call vam#ActivateAddons(["vim-airline"], {})
-call vam#ActivateAddons(["github:vim-airline/vim-airline-themes"], {})
+call vam#ActivateAddons(["vim-airline-themes"], {}) " need to be in vim-pi/db/scmsources.vim
 call vam#ActivateAddons(["unite"], {})
 call vam#ActivateAddons(["vimfiler"], {})
-"call vam#ActivateAddons(["vim-airline-themes"], {}) " need to be in vim-pi/db/scmsources.vim
+call vam#ActivateAddons(["github:junegunn/fzf"], {})
+call vam#ActivateAddons(["github:junegunn/fzf.vim"], {})
+call vam#ActivateAddons(["fugitive"], {})
 "call vam#install#Install(["github:vim-airline/vim-airline-themes"], {})
 "call vam#install#Install(["vim-airline-themes"], {})
 endfun
@@ -71,6 +73,19 @@ call SetupVAM()
 
 " VimFiler
 :let g:vimfiler_as_default_explorer = 1
+
+nmap <buffer> . <Plug>(vimfiler_toggle_visible_dot_files)
+
+" Ranger file manager
+function Ranger()
+    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+    if filereadable('/tmp/vim_ranger_current_file')
+        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+        call system('rm /tmp/vim_ranger_current_file')
+    endif
+    redraw!
+endfun
+map <Leader>x :call Ranger()<CR>
 
 " .vimrc manipulation
 
