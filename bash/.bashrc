@@ -170,5 +170,6 @@ fi
 # Liquidprompt
 source ~/bin/liquidprompt
 
+# fzf 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

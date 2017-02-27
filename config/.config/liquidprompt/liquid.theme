@@ -1,4 +1,3 @@
-
 ####################################
 # LIQUID PROMPT DEFAULT THEME FILE #
 ####################################
@@ -57,8 +56,11 @@ LP_PS1_POSTFIX=""
 # BOLD_BLUE, PURPLE, PINK, CYAN, BOLD_CYAN
 # Set to a null string "" if you do not want color.
 
+# Bracket
+LP_COLOR_BRACKET="$BLUE"
+
 # Current working directory
-LP_COLOR_PATH="$BOLD"         # as normal user
+LP_COLOR_PATH="$BOLD_GRAY"         # as normal user
 LP_COLOR_PATH_ROOT="$BOLD_YELLOW"   # as root
 
 # Color of the proxy mark
@@ -78,14 +80,14 @@ LP_COLOR_MARK_ROOT="$BOLD_RED"  # as root
 LP_COLOR_MARK_SUDO="$BOLD_RED"  # when sudo credentials are cached
 
 # Current user
-LP_COLOR_USER_LOGGED=""           # user who logged in
+LP_COLOR_USER_LOGGED="$CYAN"           # user who logged in
 LP_COLOR_USER_ALT="$BOLD"         # user but not the one who logged in
-LP_COLOR_USER_ROOT="$BOLD_YELLOW" # root
+LP_COLOR_USER_ROOT="$RED" # root
 
 # Hostname
-LP_COLOR_HOST=""            # local host
+LP_COLOR_HOST="$CYAN"            # local host
 LP_COLOR_SSH="$BLUE"        # connected via SSH
-LP_COLOR_SU="$BOLD_YELLOW"  # connected remotely but in new environment through su/sudo
+LP_COLOR_SU="$RED"  # connected remotely but in new environment through su/sudo
 LP_COLOR_TELNET="$WARN_RED" # connected via telnet
 LP_COLOR_X11_ON="$GREEN"    # connected with X11 support
 LP_COLOR_X11_OFF="$YELLOW"  # connected without X11 support

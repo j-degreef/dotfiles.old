@@ -122,8 +122,8 @@ bindsym $mod+ccedilla workspace $workspace9
 bindsym $mod+agrave workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+ampersand move container to workspace $workspace1 
-bindsym $mod+Shift+eacute move container to workspace $workspace2 
+bindsym $mod+Shift+ampersand move container to workspace $workspace1
+bindsym $mod+Shift+eacute move container to workspace $workspace2
 bindsym $mod+Shift+quotedbl move container to workspace 3
 bindsym $mod+Shift+apostrophe move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
@@ -190,7 +190,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bar {
 #        status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    position top
+        position top
 #        tray_output primary
 }
 
@@ -203,8 +203,14 @@ bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-exec --no-startup-id ./.fehbg 
+exec --no-startup-id syndaemon -i 0.2 -d                                                                                                                             
+exec --no-startup-id synclient TapButton3=2
+exec --no-startup-id synclient PalmDetect=1
+exec --no-startup-id synclient HorizTwoFingerScroll=1
+
+exec --no-startup-id ./.fehbg
 exec --no-startup-id i3-msg 'workspace $workspace1; append_layout ~/.config/i3/workspace-1.json'
+exec --no-startup-id sleep 1
 exec --no-startup-id rxvt
 exec --no-startup-id rxvt
 exec --no-startup-id rxvt
@@ -213,12 +219,12 @@ exec --no-startup-id numlockx on
 exec --no-startup-id xautolock.sh
 exec --no-startup-id dunst
 exec --no-startup-id ~/bin/pia.sh
-exec compton -f
-exec nm-applet
-exec udiskie -t
-exec keepass2
-exec copyq
-exec megasync
-exec dropbox start
-exec pasystray
+exec --no-startup-id compton -f
+exec --no-startup-id nm-applet
+exec --no-startup-id udiskie -t
+exec --no-startup-id keepass2
+exec --no-startup-id copyq
+exec --no-startup-id megasync
+exec --no-startup-id dropbox start
+exec --no-startup-id pasystray
 

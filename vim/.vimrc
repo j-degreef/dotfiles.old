@@ -12,11 +12,15 @@ set mouse=a
 
 set t_Co=256
 set laststatus=2
+set modeline
+set tabstop=8 " expandtab
+set number cul
+" Airline status line
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='papercolor'
 
-" jdegr fro Powerline status
+" jdegr for Powerline status
 "set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 " Always show statusline
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
@@ -50,7 +54,7 @@ fun! SetupVAM()
   let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
   if !isdirectory(c.plugin_root_dir.'/vim-addon-manager/autoload')
     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
-        \       shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
+      \ shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
   endif
 
   " This provides the VAMActivate command, you could be passing plugin names, too
@@ -61,6 +65,8 @@ call vam#ActivateAddons(["vimfiler"], {})
 call vam#ActivateAddons(["github:junegunn/fzf"], {})
 call vam#ActivateAddons(["github:junegunn/fzf.vim"], {})
 call vam#ActivateAddons(["fugitive"], {})
+call vam#ActivateAddons(["github:liuchengxu/space-vim-dark"], {})
+call vam#ActivateAddons(["Buffergator"], {})
 "call vam#install#Install(["github:vim-airline/vim-airline-themes"], {})
 "call vam#install#Install(["vim-airline-themes"], {})
 endfun
@@ -77,15 +83,24 @@ call SetupVAM()
 nmap <buffer> . <Plug>(vimfiler_toggle_visible_dot_files)
 
 " Ranger file manager
-function Ranger()
-    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
-    if filereadable('/tmp/vim_ranger_current_file')
-        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
-        call system('rm /tmp/vim_ranger_current_file')
-    endif
-    redraw!
+function! Ranger()
+exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+  if filereadable('/tmp/vim_ranger_current_file')
+    exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+    call system('rm /tmp/vim_ranger_current_file')
+  endif
+  redraw!
 endfun
 map <Leader>x :call Ranger()<CR>
 
+" Colorscheme
+colorscheme space-vim-dark
+hi Comment cterm=italic
+
+" Transparent background
+hi Normal guibg=NONE ctermbg=NONE
+
+
 " .vimrc manipulation
 
+" vim: ts=2 et
