@@ -1,0 +1,36 @@
+URxvt*font: xft:UbuntuMonoDerivativePowerline Nerd Font:pixelsize=14:xft:DejaVu Sans Mono for Powerline:pixelsize=12:FontAwesome:pixelsize=12:xft:Awesome:pixelsize=12:xft:Symbola:pixelsize=12
+!URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=12:xft:AnonymicePowerline Nerd Font:pixelsize=12
+!URxvt*font: xft:AnonymicePowerline Nerd Font:pixelsize=16
+!URxvt*font: xft:Awesome:pixelsize=12
+URxvt*transparent: true
+URxvt*shading: 20
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*foreground: white
+URxvt*background: black
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select
+
+!URxvt.iconFile: /usr/share/icons/Mint-X/apps/96/utilities-terminal.svg
+
+URxvt.keysym.C-Home           : \033[1;5H
+URxvt.keysym.C-End            : \033[1;5F
+
+! for Vim 
+! https://www.reddit.com/r/urxvt/comments/362m0s/vim_keybindings_can_finally_work_properly_in/
+URxvt.keysym.C-Page_Up        : \033[5;5~
+URxvt.keysym.C-Page_Down      : \033[6;5~
+
+! URL handler
+! https://wiki.archlinux.org/index.php/Rxvt-unicode#Clickable_URLs
+URxvt.url-launcher:       sensible-browser
+URxvt.keysym.C-Delete:    matcher:last
+URxvt.keysym.M-Delete:    matcher:list
+URxvt.keysym.M-Home  :    matcher:select
+URxvt.matcher.button:     1
+
+! keyboard-select
+!http://www.github.com/muennich/urxvt-perls
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: keyboard-select:search
+
