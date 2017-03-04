@@ -32,7 +32,6 @@ floating_modifier mod1
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-# jdegr
 bindsym $mod+Return exec rxvt
 
 # kill focused window
@@ -97,13 +96,12 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# jdegr
+# Workspaces
 set $workspace1 "1 Terms "
 set $workspace2 "2 FireFox "
 set $workspace9 "9 Music ♪"
 set $workspace10 "10 Tools "
 
-# jdegr
 assign [class="Firefox"] $workspace2
 assign [class="KeePass2"] $workspace10
 assign [class="Clementine"] $workspace9
@@ -166,7 +164,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# jdegr
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -194,27 +191,31 @@ bar {
 #        tray_output primary
 }
 
-# jdegr
+# Lock
 #bindsym $mod+Shift+x exec i3lock -d
-#bindsym $mod+Shift+s exec i3lock -d ; exec systemctl suspend
 bindsym $mod+Shift+x exec xautolock -locknow
+# Suspend
+#bindsym $mod+Shift+s exec i3lock -d ; exec systemctl suspend
 bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
 
+# For numlock/capslock i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-exec --no-startup-id syndaemon -i 0.2 -d                                                                                                                             
+# Touchpad config
+exec --no-startup-id syndaemon -i 0.2 -d
 exec --no-startup-id synclient TapButton3=2
 exec --no-startup-id synclient PalmDetect=1
 exec --no-startup-id synclient HorizTwoFingerScroll=1
+exec --no-startup-id synclient HorizHysteresis=50 VertHysteresis=50
 
+# Startup programs
 exec --no-startup-id ./.fehbg
 exec --no-startup-id i3-msg 'workspace $workspace1; append_layout ~/.config/i3/workspace-1.json'
 exec --no-startup-id sleep 1
 exec --no-startup-id rxvt
 exec --no-startup-id rxvt
 exec --no-startup-id rxvt
-
 exec --no-startup-id numlockx on
 exec --no-startup-id xautolock.sh
 exec --no-startup-id dunst
