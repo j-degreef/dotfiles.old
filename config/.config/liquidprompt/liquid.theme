@@ -57,12 +57,14 @@ LP_PS1_POSTFIX=""
 # Set to a null string "" if you do not want color.
 
 # Bracket
-#LP_COLOR_BRACKET="$BLUE"
+LP_COLOR_BRACKET="$BLUE"
 
 # Current working directory
-LP_COLOR_PATH="$BOLD_GRAY"         # as normal user
+#LP_COLOR_PATH="$BOLD_GRAY"         # as normal user
 #LP_COLOR_PATH="\033[38;5;250m"
-#LP_COLOR_PATH=`tput setaf 240;`      # as normal user
+#LP_COLOR_PATH=\[$(tput setaf 240;)\]      # as normal user
+ti_setaf() { tput setaf "$1" ; }
+LP_COLOR_PATH="\[$(ti_setaf 250)"      # as normal user
 LP_COLOR_PATH_ROOT="$BOLD_YELLOW"   # as root
 
 # Color of the proxy mark
