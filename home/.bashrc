@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+export EDITOR=nvim
+export DEFAULT_EDITOR=nvim
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -47,12 +50,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -127,6 +130,9 @@ fi
 # jdegr make mc quit in current directory
 alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
+# Use nvim instead of vim
+alias vim="nvim"
+
 # jdegr control-s is used by bash forward history search
 # but is mapping by default to scroll lock
 # ^s scroll lock, ^q disable scroll lock, -ixon disable both
@@ -170,6 +176,17 @@ fi
 # Liquidprompt
 source ~/bin/liquidprompt
 
-# fzf 
+# fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# fasd
+eval "$(fasd --init auto)"
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
 

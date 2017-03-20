@@ -678,7 +678,6 @@ _lp_get_home_tilde_collapsed()
 # * show at least LP_PATH_KEEP leading dirs and current directory
 _lp_shorten_path()
 {
-
     if (( ! LP_ENABLE_SHORTEN_PATH )); then
         # We are not supposed to come here often as this case is already
         # optimized at install time

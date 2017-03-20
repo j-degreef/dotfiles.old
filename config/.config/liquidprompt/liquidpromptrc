@@ -6,7 +6,7 @@
 # If you want to use different themes and features,
 # you can load the corresponding files here:
 source ~/.config/liquidprompt/liquid.theme
-LP_PS1_FILE=~/.config/liquidprompt/liquid.ps1
+#LP_PS1_FILE=~/.config/liquidprompt/liquid.ps1
 
 #############
 # BEHAVIOUR #
@@ -111,7 +111,7 @@ LP_ENABLE_FOSSIL=0
 
 # Enable the Bazaar special features.
 # Recommanded value is 1
-LP_ENABLE_BZR=0
+LP_ENABLE_BZR=1
 
 # Show time of when the current prompt was displayed. (Must be enabled and
 # disabled in the config file and not after liquidprompt has already been
@@ -153,7 +153,7 @@ LP_TIME_ANALOG=0
 LP_ENABLE_TITLE=1
 
 # Enable Title for screen and byobu
-LP_ENABLE_SCREEN_TITLE=0
+LP_ENABLE_SCREEN_TITLE=1
 
 # Use different colors for the different hosts you SSH to
 LP_ENABLE_SSH_COLORS=1

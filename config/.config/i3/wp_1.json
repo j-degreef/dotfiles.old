@@ -4,19 +4,17 @@
     "current_border_width": 2,
     "floating": "auto_off",
     "geometry": {
-       "height": 340,
-       "width": 656,
+       "height": 427,
+       "width": 642,
        "x": 0,
        "y": 0
     },
-    "name": 1,
+    "name": "Terminator",
     "percent": 0.5,
     "swallows": [
        {
        "class": "^Terminator$",
-       "instance": "^$",
-       "title": "^$",
-       "transient_for": "^$"
+       "instance": "^terminator$"
        }
     ],
     "type": "con"
@@ -35,19 +33,17 @@
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-               "height": 340,
-               "width": 656,
+               "height": 427,
+               "width": 642,
                "x": 0,
                "y": 0
             },
-            "name": 2,
+            "name": "Terminator",
             "percent": 0.5,
             "swallows": [
                {
                "class": "^Terminator$",
-               "instance": "^$",
-               "title": "^$",
-               "transient_for": "^$"
+               "instance": "^terminator$"
                }
             ],
             "type": "con"
@@ -57,20 +53,18 @@
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-               "height": 340,
-               "width": 656,
+               "height": 427,
+               "width": 642,
                "x": 0,
                "y": 0
             },
-            "name": 3,
+            "name": "Terminator",
             "percent": 0.5,
             "swallows": [
                {
                "class": "^Terminator$",
-               "instance": "^$",
-               "title": "^$",
-               "transient_for": "^$"
-               }
+               "instance": "^terminator$"
+            }
             ],
             "type": "con"
         }

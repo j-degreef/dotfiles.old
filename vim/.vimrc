@@ -5,6 +5,11 @@ autocmd!
 syntax on
 filetype plugin indent on
 
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 set omnifunc=syntaxcomplete#Complete
 
 " to have mouse scrolling in urxvt
@@ -15,10 +20,22 @@ set laststatus=2
 set modeline
 set tabstop=4 expandtab
 set number cursorline " nu cul
+
 " Airline status line
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='papercolor'
+let g:airline#extensions#tabline#enabled=1
+"let g:airline_theme='papercolor'
+let g:airline_theme='raven'
+let g:WebDevIconsOS='unix'
+
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+let g:indentLine_char = '|'
 
 " jdegr for Powerline status
 "set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
@@ -58,20 +75,25 @@ fun! SetupVAM()
   endif
 
   " This provides the VAMActivate command, you could be passing plugin names, too
-call vam#ActivateAddons(["vim-airline"], {})
-call vam#ActivateAddons(["vim-airline-themes"], {}) " need to be in vim-pi/db/scmsources.vim
-call vam#ActivateAddons(["unite"], {})
-call vam#ActivateAddons(["vimfiler"], {})
-call vam#ActivateAddons(["github:junegunn/fzf"], {})
-call vam#ActivateAddons(["github:junegunn/fzf.vim"], {})
-call vam#ActivateAddons(["fugitive"], {})
-call vam#ActivateAddons(["github:liuchengxu/space-vim-dark"], {})
-call vam#ActivateAddons(["Buffergator"], {})
-call vam#ActivateAddons(["The_NERD_tree"], {})
-"call vam#install#Install(["github:vim-airline/vim-airline-themes"], {})
-"call vam#install#Install(["vim-airline-themes"], {})
+  call vam#ActivateAddons(["github:liuchengxu/space-vim-dark"], {})
+  call vam#ActivateAddons(["The_NERD_tree"], {})
+  call vam#ActivateAddons(["github:tiagofumo/vim-nerdtree-syntax-highlight"], {})
+  call vam#ActivateAddons(["github:Xuyuanp/nerdtree-git-plugin"], {})
+  call vam#ActivateAddons(["github:ryanoasis/vim-devicons"], {})
+  call vam#ActivateAddons(["vim-airline"], {})
+  call vam#ActivateAddons(["vim-airline-themes"], {}) " need to be in vim-pi/db/scmsources.vim
+  call vam#ActivateAddons(["unite"], {})
+  call vam#ActivateAddons(["vimfiler"], {})
+  call vam#ActivateAddons(["github:junegunn/fzf"], {})
+  call vam#ActivateAddons(["github:junegunn/fzf.vim"], {})
+  call vam#ActivateAddons(["fugitive"], {})
+  call vam#ActivateAddons(["vim-gitgutter"], {})
+  call vam#ActivateAddons(["Buffergator"], {})
+  call vam#ActivateAddons(["github:myusuf3/numbers.vim"], {})
+  call vam#ActivateAddons(["github:Yggdroot/indentLine"], {})
+  "call vam#install#Install(["github:vim-airline/vim-airline-themes"], {})
+  "call vam#install#Install(["vim-airline-themes"], {})
 endfun
-
 call SetupVAM()
 " end vim-addon-manager
 
@@ -85,7 +107,7 @@ nmap <buffer> . <Plug>(vimfiler_toggle_visible_dot_files)
 
 " Ranger file manager
 function! Ranger()
-exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+  exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
   if filereadable('/tmp/vim_ranger_current_file')
     exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
     call system('rm /tmp/vim_ranger_current_file')
