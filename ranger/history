@@ -1,0 +1,50 @@
+fasd  s
+fasd Do
+fasd dow
+fasd  Download
+fasd Download
+fasd  Doc
+cd  bin
+fasd b
+shell -w ./install.py --clang-completer
+fzf_select 
+shell -w fzf
+shell bash
+fasd vimr
+fasd bi
+fasd  Dow
+shell -w grep os *
+cd /media
+find new_files
+fasd sr
+fasd Down
+shell -w echo $SHELL
+find .pr
+shell $SHELL
+shell 
+find .pro
+shell vim .gitignore
+mv %s %s.sav
+rename %s %s.sav
+rename %s .sav
+rename login.keyring
+cd Downloads/
+find i3l
+fasd bin
+rename %s.sh
+fasd src
+fasd  sr
+fasd 
+rename devicons.py
+cd 
+mkdir syntax
+fasd Dow
+search i3
+open_with vim
+open_with 
+delete
+mkdir Djian
+
+open_with fbreader
+open_with FBreader
+open_with FBReader
