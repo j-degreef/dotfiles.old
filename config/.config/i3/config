@@ -33,12 +33,13 @@ floating_modifier mod1
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec rxvt
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec --no-startup-id termite
 
 # Exec programs
-bindsym $mod+n 		exec terminator -e ranger
-bindsym $mod+b 		exec terminator -e mc
-bindsym $mod+w		exec firefox
+bindsym $mod+n 		exec --no-startup-id termite -c ~/.config/termite/not_transparent.config -e ranger
+bindsym $mod+b 		exec --no-startup-id terminator -e mc
+bindsym $mod+Shift+v 		exec --no-startup-id terminator -e nvim
+bindsym $mod+w		exec --no-startup-id firefox
 bindsym $mod+g		exec --no-startup-id gimp; workspace $workspaces5
 bindsym $mod+c		exec --no-startup-id copyq toggle
 
@@ -177,6 +178,9 @@ gaps outer 0
 bindsym $mod+Shift+t	gaps inner all set 0; gaps outer all set 0
 bindsym $mod+Shift+y	gaps inner all set 10; gaps outer all set 0
 
+for_window [class="(?i)CopyQ"] floating enable, resize set 600 700
+for_window [class="(?i)pavucontrol"] floating enable
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -230,9 +234,12 @@ exec --no-startup-id i3-msg 'workspace $workspace1; append_layout ~/.config/i3/w
 #exec --no-startup-id rxvt
 #exec --no-startup-id rxvt
 #exec --no-startup-id rxvt
-exec --no-startup-id terminator
-exec --no-startup-id terminator
-exec --no-startup-id terminator
+#exec --no-startup-id terminator
+#exec --no-startup-id terminator
+#exec --no-startup-id terminator
+exec --no-startup-id termite
+exec --no-startup-id termite
+exec --no-startup-id termite
 exec --no-startup-id xautolock -detectsleep \
     -time 15 -locker "i3lock-extra.sh -s -o ~/Pictures/Apps-Computer-Lock-icon.png -b" \
     -notify 30 \
@@ -249,8 +256,5 @@ exec --no-startup-id copyq
 exec --no-startup-id megasync
 exec --no-startup-id dropbox start
 exec --no-startup-id pasystray
-
-for_window [class="(?i)CopyQ"] floating enable, resize set 600 700
-for_window [class="(?i)pavucontrol"] floating enable
 
 # vim:filetype=i3

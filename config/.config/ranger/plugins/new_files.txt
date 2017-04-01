@@ -9,7 +9,19 @@
     'lha'      : '',
     'gz'       : '',
     'tar'      : '',
-    'tgz'      : ''
+    'tgz'      : '',
+    'cpio'     : '',
+    'deb'      : '',
+    'rpm'      : '',
+    'gem'      : '',
+    '7z'       : '',
+    'cab'      : '',
+    'lzh'      : '',
+    'rar'      : '',
+    'bz2'      : '',
+    'lzma'     : '',
+    'xz'       : '',
+    'gzip'     : ''
 
     '.Xdefaults'                       : '',
     '.Xresources'                      : '',
@@ -29,4 +41,5 @@
     'user-dirs.dirs'                   : '',
     'ini'                              : '',
     'config'                           : ''
+
 

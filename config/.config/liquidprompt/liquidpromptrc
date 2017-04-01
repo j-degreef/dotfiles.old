@@ -87,7 +87,7 @@ LP_ENABLE_BATT=1
 # Enable the 'sudo credentials' feature.
 # Be warned that this may pollute the syslog if you don't have sudo
 # credentials, and the sysadmin will hate you.
-LP_ENABLE_SUDO=0
+LP_ENABLE_SUDO=1
 
 # Enable the VCS features with the root account.
 # Recommended value is 0
@@ -99,15 +99,15 @@ LP_ENABLE_GIT=1
 
 # Enable the Subversion special features.
 # Recommended value is 1
-LP_ENABLE_SVN=0
+LP_ENABLE_SVN=1
 
 # Enable the Mercurial special features.
 # Recommended value is 1
-LP_ENABLE_HG=0
+LP_ENABLE_HG=1
 
 # Enable the Fossil special features.
 # Recommended value is 1
-LP_ENABLE_FOSSIL=0
+LP_ENABLE_FOSSIL=1
 
 # Enable the Bazaar special features.
 # Recommanded value is 1
@@ -120,7 +120,7 @@ LP_ENABLE_TIME=1
 
 # Show runtime of the previous command if over LP_RUNTIME_THRESHOLD
 # Recommended value is 0
-LP_ENABLE_RUNTIME=1
+LP_ENABLE_RUNTIME=0
 
 # Minimal runtime (in seconds) before the runtime will be displayed
 # Recommended value is 2
@@ -150,7 +150,7 @@ LP_TIME_ANALOG=0
 # recommended value is 0
 # See LP_TITLE_OPEN and LP_TITLE_CLOSE to change escape characters to adapt this
 # feature to your specific terminal.
-LP_ENABLE_TITLE=1
+LP_ENABLE_TITLE=0
 
 # Enable Title for screen and byobu
 LP_ENABLE_SCREEN_TITLE=1

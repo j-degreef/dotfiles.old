@@ -1,50 +1,50 @@
-fasd  s
-fasd Do
-fasd dow
-fasd  Download
-fasd Download
-fasd  Doc
-cd  bin
-fasd b
-shell -w ./install.py --clang-completer
-fzf_select 
-shell -w fzf
-shell bash
-fasd vimr
-fasd bi
+compress
+compress zip %s
+compress 
+compress %s
+shell -w apack
+compress %s zip
+compress zip
+compress 7z
+compress .7z
+compress .zip
+compress plugins.tar.gz
+cd  /tmp
+shell -w dtrx %s
+fasd ran
+search termite
+shell -w echo %s
+shell -w echo %y
+shell -w echo %%y
+fzf test
+?
 fasd  Dow
-shell -w grep os *
-cd /media
-find new_files
-fasd sr
-fasd Down
-shell -w echo $SHELL
-find .pr
-shell $SHELL
+cd /tmp
+find term
+compress test.zip
+mkdir tmp
+compress test.7z
+extracthere 
+*.sav
+fasd  torr
+mkdir ranger.new
+cd /var/log/
+rename ranger.sav
+cd ranger/
+source rc.conf
+cd /home/jdegreef/.config/ranger
+fasd b
+fasd  Do
+open_with gimp
+open_with gimp &
+fasd  Pict
 shell 
-find .pro
-shell vim .gitignore
-mv %s %s.sav
-rename %s %s.sav
-rename %s .sav
-rename login.keyring
-cd Downloads/
-find i3l
-fasd bin
-rename %s.sh
-fasd src
-fasd  sr
-fasd 
-rename devicons.py
+shell -w
 cd 
-mkdir syntax
-fasd Dow
-search i3
-open_with vim
+fasd Down
+fasd  Down
 open_with 
+shell -w ls *.xml
+shell touch test.xml
 delete
-mkdir Djian
 
-open_with fbreader
-open_with FBreader
-open_with FBReader
