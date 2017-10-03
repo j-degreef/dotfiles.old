@@ -1,50 +1,50 @@
-compress
-compress zip %s
-compress 
-compress %s
-shell -w apack
-compress %s zip
-compress zip
-compress 7z
-compress .7z
-compress .zip
-compress plugins.tar.gz
-cd  /tmp
-shell -w dtrx %s
-fasd ran
-search termite
-shell -w echo %s
-shell -w echo %y
-shell -w echo %%y
-fzf test
-?
-fasd  Dow
-cd /tmp
-find term
-compress test.zip
-mkdir tmp
-compress test.7z
-extracthere 
-*.sav
-fasd  torr
-mkdir ranger.new
-cd /var/log/
-rename ranger.sav
-cd ranger/
-source rc.conf
-cd /home/jdegreef/.config/ranger
-fasd b
-fasd  Do
-open_with gimp
-open_with gimp &
-fasd  Pict
+help
+rename Alaskan.Bush.People.S00E01.A.Very.Bush.Christmas.Special.HDTV.XviD-AFG.avi
+rename Alaskan.Bush.People.S00E04.Lost.Footage.Special.XviD-AFG.avi
+rename Alaskan.Bush.People.S00E03.The.Wild.Year.Special.480p.x264-mSD.mkv
+rename Alaskan.Bush.People.S00E03.Wild.Times.Special.HDTV.XviD-AFG.avi
+rename Alaskan.Bush.People.S00E05.The.Wild.Year.Special.480p.x264-mSD.mkv
+rename Alaskan.Bush.People.S05E03.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E02.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E01.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E04.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E05.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E06.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E07.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E08.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E09.XviD-AFG.avi
+rename Alaskan.Bush.People.S05E10.XviD-AFG.avi
+rename alaskan.bush.people.S06E05.one.brown.down.1080p.web.h264-edhd.mkv
+bulkrename 
+rename alaskan.bush.people.S07E07.1080p.web.x264-heat.mkv
+find 
+rename Alaskan.Bush.People.S07E02.Faith.and.Family.720p.WEBRip.x264-SOIL.mkv
+rename 
+rename
+rename Alaskan.Bush.People.S00E02.A.Very.Bush.Christmas.Special.HDTV.XviD-AFG.avi
+rename Alaskan.Bush.People.S00E05.Lost.Footage.Special.XviD-AFG.avi
+find wild \years
+find endl
+shell s
+rename Alaskan.Bush.People.S00E07.Endless.Summer.Special.480p.x264-mSD.mkv
+rename Alaskan.Bush.People.S00E07.The.Wild.Year.Special.480p.x264-mSD.mkv
+rename Alaskan.Bush.People.S00E06.The.Wild.Year.Special.480p.x264-mSD.mkv
+find paradiz
+find paradi
+find Paradis
+rename Alaskan.Bush.People.S00E09.Special.Paradise.Lost.480p.x264-mSD.mkv
+find browntown
+rename Alaskan.Bush.People.S00E12.A.Browntown.Christmas.XviD-AFG.avi
+rename Alaskan.Bush.People.S00E13.A.Browntown.Christmas.XviD-AFG.avi
+q
+find pa
+find pass
 shell 
-shell -w
-cd 
-fasd Down
-fasd  Down
-open_with 
-shell -w ls *.xml
-shell touch test.xml
-delete
+find kee
+cd ../bin
+find bin
+find Dme
+find She
 
+cd 
+delete

@@ -35,6 +35,7 @@ FILE_EXTENSION_LOWER="${FILE_EXTENSION,,}"
 
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
+HIGHLIGHT_TABWIDTH=8
 HIGHLIGHT_STYLE='pablo'
 PYGMENTIZE_STYLE='autumn'
 
@@ -43,7 +44,7 @@ handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
         # Archive
         a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
-        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip|tar.gz)
+        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
             atool --list -- "${FILE_PATH}" && exit 5
             bsdtar --list --file "${FILE_PATH}" && exit 5
             exit 1;;
@@ -122,7 +123,8 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            /usr/bin/highlight --out-format="${highlight_format}" --style="${HIGHLIGHT_STYLE}" -- "${FILE_PATH}" && exit 5
+            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
+                --style="${HIGHLIGHT_STYLE}" -- "${FILE_PATH}" && exit 5
             # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" && exit 5
             exit 2;;
 

@@ -130,6 +130,9 @@ fi
 # jdegr make mc quit in current directory
 alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
+# Make ranger work in 256 colors in tmux
+alias ranger='TERM=xterm-256color ranger'
+
 # Use nvim instead of vim
 alias vim="nvim"
 

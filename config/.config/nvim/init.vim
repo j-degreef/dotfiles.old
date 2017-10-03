@@ -35,7 +35,11 @@ colorscheme space-vim-dark
 hi Comment cterm=italic
 " Transparent background
 hi Normal guibg=NONE ctermbg=NONE
-    " Go back to last position in file {{{
+
+" LanguegeTool
+let g:languagetool_jar='$HOME/src/LanguageTool-3.7/languagetool-commandline.jar'
+
+" Go back to last position in file {{{
     if has("autocmd")
       au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
       \| exe "normal! g'\"" | endif

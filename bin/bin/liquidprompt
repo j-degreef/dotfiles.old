@@ -678,6 +678,7 @@ _lp_get_home_tilde_collapsed()
 # * show at least LP_PATH_KEEP leading dirs and current directory
 _lp_shorten_path()
 {
+
     if (( ! LP_ENABLE_SHORTEN_PATH )); then
         # We are not supposed to come here often as this case is already
         # optimized at install time
@@ -1022,7 +1023,7 @@ _lp_hg_branch_color()
 
         local has_untracked
         has_untracked=
-        if hg status -u 2>/dev/null | \grep -q '^\?' >/dev/null ; then
+        if hg status -u 2>/dev/null | \grep -q '^?' >/dev/null ; then
             has_untracked="$LP_COLOR_CHANGES$LP_MARK_UNTRACKED"
         fi
 

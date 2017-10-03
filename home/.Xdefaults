@@ -1,7 +1,8 @@
-URxvt*font: xft:SauceCodePro Nerd Font:size=10:
+URxvt.font: xft:DroidSansMonoForPowerline Nerd Font:pixelsize=12
+!URxvt*font: xft:SauceCodePro Nerd Font:size=10:
 !URxvt.font: xft:DejaVuSansMonoForPowerline Nerd Font:size=12
 !URxvt*font: xft:UbuntuMonoDerivativePowerline Nerd Font:pixelsize=18
-!:xft:DejaVu Sans Mono for Powerline:pixelsize=12:FontAwesome:pixelsize=12:xft:Awesome:pixelsize=12:xft:Symbola:pixelsize=12
+!URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=12:xft:FontAwesome:pixelsize=12:xft:Awesome:pixelsize=12:xft:Symbola:pixelsize=12
 !URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=12:xft:AnonymicePowerline Nerd Font:pixelsize=12
 !URxvt*font: xft:AnonymicePowerline Nerd Font:pixelsize=14
 !URxvt*font: xft:Awesome:pixelsize=12
