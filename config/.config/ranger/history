@@ -1,5 +1,3 @@
-rename Alaskan.Bush.People.S05E03.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E02.XviD-AFG.avi
 rename Alaskan.Bush.People.S05E01.XviD-AFG.avi
 rename Alaskan.Bush.People.S05E04.XviD-AFG.avi
 rename Alaskan.Bush.People.S05E05.XviD-AFG.avi
@@ -38,13 +36,15 @@ find kee
 cd ../bin
 find Dme
 find She
-
 find ran
 rename rangernger.py.log
 find bin
 find sr
 cd 
 chmod 766
-delete
 help
 open_with 
+
+fasd 
+delete
+rename commands.py
