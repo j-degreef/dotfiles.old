@@ -1,9 +1,3 @@
-help
-rename Alaskan.Bush.People.S00E01.A.Very.Bush.Christmas.Special.HDTV.XviD-AFG.avi
-rename Alaskan.Bush.People.S00E04.Lost.Footage.Special.XviD-AFG.avi
-rename Alaskan.Bush.People.S00E03.The.Wild.Year.Special.480p.x264-mSD.mkv
-rename Alaskan.Bush.People.S00E03.Wild.Times.Special.HDTV.XviD-AFG.avi
-rename Alaskan.Bush.People.S00E05.The.Wild.Year.Special.480p.x264-mSD.mkv
 rename Alaskan.Bush.People.S05E03.XviD-AFG.avi
 rename Alaskan.Bush.People.S05E02.XviD-AFG.avi
 rename Alaskan.Bush.People.S05E01.XviD-AFG.avi
@@ -42,9 +36,15 @@ find pass
 shell 
 find kee
 cd ../bin
-find bin
 find Dme
 find She
 
+find ran
+rename rangernger.py.log
+find bin
+find sr
 cd 
+chmod 766
 delete
+help
+open_with 
