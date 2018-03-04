@@ -1859,7 +1859,9 @@ _lp_set_prompt()
 
         # "invisible" parts
         # Get the current prompt on the fly and make it a title
-        LP_TITLE="$(_lp_title "$PS1")"
+        #LP_TITLE="$(_lp_title "$PS1")"
+        LP_TITLE="${LP_BRACKET_OPEN}${LP_USER}${LP_HOST}:${LP_PWD}${LP_BRACKET_CLOSE}"
+        LP_TITLE="$(_lp_title "$LP_TITLE")"
 
         # Insert it in the prompt
         PS1="${LP_TITLE}${PS1}"
