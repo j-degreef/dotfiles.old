@@ -10,10 +10,12 @@ esac
 
 export EDITOR=nvim
 export DEFAULT_EDITOR=nvim
+export ANDROID_HOME=/home/jdegreef/Android/Sd
+export ANDROID_NDK=/home/jdegreef/Android/Sdk/ndk-bundle
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignorespace:ignoredups:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -32,6 +34,14 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# jdegr set command as term title
+# Please note if use $BASH_COMMAND, it don't recognize bash alias, and use PROMPT_COMMAND show finished command, but use trap show running command.
+# https://stackoverflow.com/questions/5076127/bash-update-terminal-title-by-running-a-second-command/5080670#5080670
+#export PROMPT_COMMAND='echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"'
+#trap 'echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"' DEBUG
+#trap 'echo -ne "\e]0;"; echo -n $BASH_COMMAND; echo -ne "\a"' DEBUG
+# trap 'echo -ne "\033]2;`whoami`@`hostname` `pwd` $(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"' DEBUG
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -72,12 +82,40 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*e)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
     ;;
 *)
     ;;
 esac
+set +x
+my_title(){
+case "$TERM" in
+xterm*|rxvt*)
+    # Show the currently running command in the terminal title:
+    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+    show_command_in_title_bar()
+    {
+        case "$BASH_COMMAND" in
+            *\033]0*)
+                # The command is trying to set the title bar as well;
+                # this is most likely the execution of $PROMPT_COMMAND.
+                # In any case nested escapes confuse the terminal, so don't
+                # output them.
+                ;;
+            *)
+                PWD=`pwd`
+                _PWD=${PWD/#$HOME/'~'}
+                echo -ne "\033]0;[${USER}@${HOSTNAME}:$_PWD] $ ${BASH_COMMAND}\007"
+                ;;
+        esac
+    }
+    trap show_command_in_title_bar DEBUG
+    ;;
+*)
+    ;;
+esac
+}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -144,33 +182,6 @@ then
   stty -ixon
 fi
 
-# jdegr set rxvt title
-# If this is an xterm set the title to user@host:dir
-#case "$TERM" in
-#xterm*|rxvt*)
-## Show the currently running command in the terminal title:
-## http://www.davidpashley.com/articles/xterm-titles-with-bash.html
-#    show_command_in_title_bar()
-#    {
-##        set -o functrace
-#        case "$BASH_COMMAND" in
-#            "promptcmd")
-#                # The command is trying to set the title bar as well;
-#                # this is most likely the execution of $PROMPT_COMMAND.
-#                # In any case nested escapes confuse the terminal, so don't
-#                # output them.
-#                ;;
-#            *)
-#	     echo -ne "\[\033]0;\]:${USER}@${HOSTNAME}: `pwd`: ${BASH_COMMAND}\007"
-#	     trap show_command_in_title_bar DEBUG
-#                ;;
-#        esac
-#    }
-#    ;;
-#*)
-#    ;;
-#esac
-
 # jdegr for Powerline status
 #if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
 #    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
@@ -179,10 +190,8 @@ fi
 # Liquidprompt
 source ~/bin/liquidprompt
 
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # fasd
+#source ~/bin/fasd
 eval "$(fasd --init auto)"
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
@@ -192,4 +201,9 @@ alias sd='fasd -sid'     # interactive directory selection
 alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+my_title
 

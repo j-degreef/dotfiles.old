@@ -38,7 +38,8 @@ bindsym $mod+Return exec --no-startup-id termite
 bindsym $mod+n 		exec --no-startup-id termite -e ranger
 bindsym $mod+b 		exec --no-startup-id termite -e mc
 bindsym $mod+Shift+v		exec --no-startup-id termite -e nvim
-bindsym $mod+w		exec --no-startup-id firefox
+#bindsym $mod+w		exec --no-startup-id firefox
+bindsym $mod+w		exec --no-startup-id waterfox
 bindsym $mod+g		exec --no-startup-id gimp; workspace $workspaces5
 bindsym $mod+c		exec --no-startup-id copyq toggle
 
@@ -111,7 +112,8 @@ set $workspace3 "3 Files "
 set $workspace9 "9 Music ♪"
 set $workspace10 "10 Tools "
 
-assign [class="Firefox"] $workspace2
+#assign [class="Firefox"] $workspace2
+assign [class="Waterfox"] $workspace2
 assign [class="KeePass2"] $workspace10
 assign [class="Clementine"] $workspace9
 assign [class="Synaptic"] $workspace10
@@ -242,17 +244,11 @@ exec --no-startup-id i3-msg 'workspace $workspace1; append_layout ~/.config/i3/w
 exec --no-startup-id termite
 exec --no-startup-id termite
 exec --no-startup-id termite
-exec_always --no-startup-id killall xautolock
-#exec_always --no-startup-id sleep 0.5
-exec_always --no-startup-id xautolock -detectsleep \
-    -time 15 -locker "i3lock-extra.sh -s -o ~/Pictures/Apps-Computer-Lock-icon.png -b" \
-    -notify 30 \
-    -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
+exec_always --no-startup-id xautolock.sh
 exec_always --no-startup-id numlockx on
-#exec --no-startup-id xautolock.sh
 exec --no-startup-id dunst
-exec --no-startup-id ~/bin/pia.sh
-exec --no-startup-id compton -f
+exec --no-startup-id ~/bin/pia
+# exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -t
 exec --no-startup-id keepass2
@@ -260,5 +256,6 @@ exec --no-startup-id copyq
 exec --no-startup-id megasync
 exec --no-startup-id dropbox start
 exec --no-startup-id pasystray
+exec --no-startup-id hp-systray
 
 # vim:filetype=i3

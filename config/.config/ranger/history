@@ -1,50 +1,50 @@
-rename Alaskan.Bush.People.S05E01.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E04.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E05.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E06.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E07.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E08.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E09.XviD-AFG.avi
-rename Alaskan.Bush.People.S05E10.XviD-AFG.avi
-rename alaskan.bush.people.S06E05.one.brown.down.1080p.web.h264-edhd.mkv
-bulkrename 
-rename alaskan.bush.people.S07E07.1080p.web.x264-heat.mkv
-find 
-rename Alaskan.Bush.People.S07E02.Faith.and.Family.720p.WEBRip.x264-SOIL.mkv
-rename 
-rename
-rename Alaskan.Bush.People.S00E02.A.Very.Bush.Christmas.Special.HDTV.XviD-AFG.avi
-rename Alaskan.Bush.People.S00E05.Lost.Footage.Special.XviD-AFG.avi
-find wild \years
-find endl
-shell s
-rename Alaskan.Bush.People.S00E07.Endless.Summer.Special.480p.x264-mSD.mkv
-rename Alaskan.Bush.People.S00E07.The.Wild.Year.Special.480p.x264-mSD.mkv
-rename Alaskan.Bush.People.S00E06.The.Wild.Year.Special.480p.x264-mSD.mkv
-find paradiz
-find paradi
-find Paradis
-rename Alaskan.Bush.People.S00E09.Special.Paradise.Lost.480p.x264-mSD.mkv
-find browntown
-rename Alaskan.Bush.People.S00E12.A.Browntown.Christmas.XviD-AFG.avi
-rename Alaskan.Bush.People.S00E13.A.Browntown.Christmas.XviD-AFG.avi
-q
-find pa
-find pass
-shell 
-find kee
-cd ../bin
-find Dme
-find She
-find ran
-rename rangernger.py.log
-find bin
-find sr
-cd 
-chmod 766
+mkdir colors
+rename i3blocks_calendar
+rename xautolock.sh
+cd  /bin
+cd  bin
+cd /usr/share/i3blocks/
+rename i3blcks_bandwidth
+rename i3blocks_bandwidth
+cd  /
+mkdir temp
+open_with vim
+rename OEM lock.sh
+rename OEM Flash
+rename OEM Flash.sh
+open_with feh
+rename ATHENE_Stock_7.0_NPJS25.93-14-13_cid50_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip
+h
+adb push %s /sdcard
+shell adb push %s /sdcard
+find dow
 help
-open_with 
+cd /opt/
+cd src/Magisk-14.2/
+vim
+shell vim
+cd  src
+cd  ~/bin
+find bin
+find doww
+find not
+open_with bash
+find Dow
+rename Revolution OS.avi
+rename Revolution OS.srt
+open_with fbreader
 
-fasd 
+shell source rifle.conf
+source rc.conf
+find down
+q
+find downl
+cd  /root
+find Down
+extracthere 
+find elysium
+rename grsync-1.2.6
+cd 
 delete
-rename commands.py
+open_with 
+find sr

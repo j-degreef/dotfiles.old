@@ -128,6 +128,7 @@ file_node_extensions = {
 }
 
 dir_node_exact_matches = {
+# English
     '.git'                             : '',
     'Desktop'                          : '',
     'Documents'                        : '',
@@ -138,8 +139,31 @@ dir_node_exact_matches = {
     'Public'                           : '',
     'Templates'                        : '',
     'Videos'                           : '',
-    'GoogleDrive'                      : '',
-    'MEGAsync'                         : ''
+# French
+    'Bureau'                           : '',
+    'Documents'                        : '',
+    'Téléchargements'                  : '',
+    'Musique'                          : '',
+    'Images'                           : '',
+    'Publique'                         : '',
+    'Vidéos'                           : '',
+# Portuguese
+    'Área de trabalho'                 : '',
+    'Documentos'                       : '',
+    'Música'                           : '',
+    'Imagens'                          : '',
+    'Público'                          : '',
+    'Modelos'                          : '',
+    'Vídeos'                           : '',
+# Italian
+    'Scrivania'                        : '',
+    'Documenti'                        : '',
+    'Scaricati'                        : '',
+    'Musica'                           : '',
+    'Immagini'                         : '',
+    'Pubblici'                         : '',
+    'Modelli'                          : '',
+    'Video'                            : '',
 }
 
 file_node_exact_matches = {
