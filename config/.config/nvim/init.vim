@@ -71,6 +71,8 @@ nnoremap <C-End> G<End>
 inoremap <C-Home> <Esc>ggi
 inoremap <C-End> <Esc>G<End>i
 vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
+" Clear search hilight
+nnoremap <Leader><space> :noh<cr>
 "}}}
 " .vimrc manipulation {{{
 "}}}

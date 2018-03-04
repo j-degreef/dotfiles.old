@@ -173,15 +173,16 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 gaps inner 10
 gaps outer 0
+
+bindsym $mod+r mode "resize"
 bindsym $mod+Shift+t	gaps inner all set 0; gaps outer all set 0
 bindsym $mod+Shift+y	gaps inner all set 10; gaps outer all set 0
 
 for_window [class="(?i)CopyQ"] floating enable, resize set 600 700
 for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -219,6 +220,8 @@ bindsym $mod+Shift+x exec xautolock -locknow
 # Suspend
 #bindsym $mod+Shift+s exec i3lock -d ; exec systemctl suspend
 bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
+
+bindsym $mod+Shift+f exec xfce4-appfinder
 
 # For numlock/capslock i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
