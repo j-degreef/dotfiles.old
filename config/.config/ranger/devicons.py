@@ -132,7 +132,7 @@ dir_node_exact_matches = {
     '.git'                             : '',
     'Desktop'                          : '',
     'Documents'                        : '',
-    'Downloads'                        : '',
+    'Downloads'                        : '',
     'Dropbox'                          : '',
     'Music'                            : '',
     'Pictures'                         : '',
@@ -142,7 +142,7 @@ dir_node_exact_matches = {
 # French
     'Bureau'                           : '',
     'Documents'                        : '',
-    'Téléchargements'                  : '',
+    'Téléchargements'                  : '',
     'Musique'                          : '',
     'Images'                           : '',
     'Publique'                         : '',
@@ -158,7 +158,7 @@ dir_node_exact_matches = {
 # Italian
     'Scrivania'                        : '',
     'Documenti'                        : '',
-    'Scaricati'                        : '',
+    'Scaricati'                        : '',
     'Musica'                           : '',
     'Immagini'                         : '',
     'Pubblici'                         : '',

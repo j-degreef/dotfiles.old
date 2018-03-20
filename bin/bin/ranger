@@ -1,1 +1,7 @@
-python3 ~/src/ranger/ranger.py $@
+
+#!/bin/sh
+
+# To stop ranger from loading both the default and your custom rc.conf,
+# please set the environment variable RANGER_LOAD_DEFAULT_RC to FALSE.
+export RANGER_LOAD_DEFAULT_RC=false
+python3 /usr/local/bin/ranger $@

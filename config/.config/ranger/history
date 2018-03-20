@@ -1,50 +1,50 @@
-mkdir colors
-rename i3blocks_calendar
-rename xautolock.sh
-cd  /bin
-cd  bin
-cd /usr/share/i3blocks/
-rename i3blcks_bandwidth
-rename i3blocks_bandwidth
-cd  /
-mkdir temp
-open_with vim
-rename OEM lock.sh
-rename OEM Flash
-rename OEM Flash.sh
-open_with feh
-rename ATHENE_Stock_7.0_NPJS25.93-14-13_cid50_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip
-h
-adb push %s /sdcard
-shell adb push %s /sdcard
-find dow
-help
-cd /opt/
-cd src/Magisk-14.2/
-vim
-shell vim
-cd  src
-cd  ~/bin
-find bin
-find doww
-find not
-open_with bash
-find Dow
-rename Revolution OS.avi
-rename Revolution OS.srt
-open_with fbreader
-
-shell source rifle.conf
-source rc.conf
-find down
-q
-find downl
-cd  /root
-find Down
+rename i3blocks_battery
+cd src
+rename i3blocks_battery_1
+rename i3blocks_batterybar
 extracthere 
-find elysium
-rename grsync-1.2.6
-cd 
+rename i3blocks_battery.py
+find downl
+chmod 744
+cd /u/b
+cd  /u/b
 delete
-open_with 
-find sr
+cd /usr/bin/
+search modeline
+cd /usr/li
+cd /usr/share/djvu:
+cd /usr/share/doc:
+search am
+search ai
+search scout -a asp
+open_with gg
+scout -a
+scout -a ~/Con
+scout -t ~/bin
+scout -t
+scout -t Vir
+scout -it down
+rename rc.conf
+scout -it boo
+q
+source rc.conf
+scout -it ~/Doc
+
+fasd Down
+fasd 
+fasd share
+fasd -i Down
+scout -it doc
+cd  bin
+scout -it 
+find 
+shell 
+fasd /usr/share
+scout -it i3
+cd bin
+fasd bin
+rename i3blocks_batterybar.pl
+cd 
+scout -it termit
+help
+find Down

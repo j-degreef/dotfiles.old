@@ -12,6 +12,7 @@ export EDITOR=nvim
 export DEFAULT_EDITOR=nvim
 export ANDROID_HOME=/home/jdegreef/Android/Sd
 export ANDROID_NDK=/home/jdegreef/Android/Sdk/ndk-bundle
+source /etc/profile.d/jdk.sh
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

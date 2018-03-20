@@ -41,8 +41,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/Buffergator'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'Yggdroot/indentLine'
+"Plugin 'indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/LanguageTool'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

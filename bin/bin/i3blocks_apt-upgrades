@@ -15,8 +15,10 @@ SYMBOL_ONLY=0
 ALWAYS_PRINT=1
 
 # Colors for when there is/isn't a pending upgrade
-PENDING_COLOR="#00FF00"
-NONPENDING_COLOR="#FFFFFF"
+#PENDING_COLOR="#00FF00"
+#NONPENDING_COLOR="#FFFFFF"
+PENDING_COLOR="#FF0000"
+NONPENDING_COLOR="#0000FF"
 
 while getopts s:oc:n:Nh opt; do
     case "$opt" in
