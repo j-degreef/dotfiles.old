@@ -6,7 +6,8 @@
 # i3blocks blocklet script to display pending system upgrades 
 
 # FontAwesome refresh symbol, change if you do not want to install FontAwesome
-PENDING_SYMBOL="\uf021 "
+#PENDING_SYMBOL="\uf021 "
+PENDING_SYMBOL=" "
 
 # By default, show both the symbol and the numbers
 SYMBOL_ONLY=0
@@ -30,7 +31,8 @@ while getopts s:oc:n:Nh opt; do
         h) printf \
 "Usage: apt-upgrades [-s pending_symbol] [-o] [-c pending_color] [-N|-n nonpending_color] [-h]
 Options:
--s\tSpecify a refresh symbol. Default: \"\\\\uf021 \"
+#-s\tSpecify a refresh symbol. Default: \"\\\\uf021 \"
+-s\tSpecify a refresh symbol. Default: " "
 -o\tShow refresh symbol only, but no numbers.
 -c\tColor when upgrade is pending. Default:  #00FF00
 -n\tColor when no upgrade is pending. Default: #FFFFFF

@@ -12,7 +12,7 @@ export EDITOR=nvim
 export DEFAULT_EDITOR=nvim
 export ANDROID_HOME=/home/jdegreef/Android/Sd
 export ANDROID_NDK=/home/jdegreef/Android/Sdk/ndk-bundle
-source /etc/profile.d/jdk.sh
+# source /etc/profile.d/jdk.sh
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -89,7 +89,8 @@ xterm*|rxvt*e)
 *)
     ;;
 esac
-set +x
+
+# Functions {{{
 my_title(){
 case "$TERM" in
 xterm*|rxvt*)
@@ -117,6 +118,18 @@ xterm*|rxvt*)
     ;;
 esac
 }
+
+wal-tile() {
+    wal -n -i "$@"
+    feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
+}
+
+wttr()
+{
+    # change Paris to your default location
+    curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Brussels?M&m}"
+}
+# }}}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -170,7 +183,8 @@ fi
 alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
 # Make ranger work in 256 colors in tmux
-alias ranger='TERM=xterm-256color ranger'
+#alias ranger='TERM=xterm-256color ranger'
+#alias ranger='TERM=rxvt-unicode-256color ranger'
 
 # Use nvim instead of vim
 alias vim="nvim"
@@ -203,8 +217,14 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
+# Mysql java driver
+export CLASSPATH=/home/jdegreef/Android/Sdk/mysql-connector-java-5.1.46:$CLASSPATH
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 my_title
 
+export TERMINAL="urxvt"
+export VISUAL="vim"
+
+# vim: ts=2 sw=0 et fdm=marker

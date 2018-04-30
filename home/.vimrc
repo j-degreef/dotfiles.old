@@ -1,0 +1,1 @@
+/home/jdegreef/dotfiles/config/.config/nvim/init.vim

@@ -1,0 +1,15 @@
+gaps
+inner
+minus
+no_gaps
+outer
+plus
+separator_symbol
+set
+set_from_resource
+smart_borders
+smart_gaps
+title_alignment
+tray_padding
+wheel_down_cmd
+wheel_up_cmd

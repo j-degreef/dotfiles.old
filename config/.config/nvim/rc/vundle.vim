@@ -31,9 +31,6 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ryanoasis/vim-devicons' " Should be _after_ vim-airline
 "Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive'
@@ -45,6 +42,15 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/LanguageTool'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'WolfgangMehner/bash-support'
+Plugin 'dansomething/vim-eclim'
+" Needed by vimreges.vim
+Plugin 'vim-scripts/vsutil.vim'
+Plugin 'raimondi/vimregex.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'powerline/powerline'
+Plugin 'ryanoasis/vim-devicons' " Should be _after_ vim-airline
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

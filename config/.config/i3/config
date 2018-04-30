@@ -15,7 +15,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: FiraMonoFor Nerd Font Mono 9
+#font pango: DejaVu Sans Mono 8, FontAwesome 8, Noto Color Font 8
+font pango:FuraCode Nerd Font 10, FontAwesome 10, Noto Color Font 10
+#font pango: Noto Color Emoji, Bitstream Vera Serif 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -108,20 +110,23 @@ bindsym $mod+q focus parent
 set $workspace1 "1 Terms "
 set $workspace2 "2 FireFox "
 set $workspace3 "3 Files "
+set $workspace4 "4 IRC #"
 set $workspace9 "9 Music ♪"
 set $workspace10 "10 Tools "
 
 #assign [class="Firefox"] $workspace2
 assign [class="Waterfox"] $workspace2
+#assign [name="WeeChat"] $workspace10
 assign [class="KeePass2"] $workspace10
 assign [class="Clementine"] $workspace9
+assign [class="Synaptic"] $workspace10
 assign [class="Synaptic"] $workspace10
 
 # switch to workspace
 bindsym $mod+ampersand workspace $workspace1
 bindsym $mod+eacute workspace $workspace2
 bindsym $mod+quotedbl workspace $workspace3
-bindsym $mod+apostrophe workspace 4
+bindsym $mod+apostrophe workspace $workspace4
 bindsym $mod+parenleft workspace 5
 bindsym $mod+section workspace 6
 bindsym $mod+egrave workspace 7
@@ -140,6 +145,15 @@ bindsym $mod+Shift+egrave move container to workspace 7
 bindsym $mod+Shift+exclam move container to workspace 8
 bindsym $mod+Shift+ccedilla move container to workspace $workspace9
 bindsym $mod+Shift+agrave move container to workspace $workspace10
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Show the sup-mail scratchpad window, if any.
+#bindsym mod4+s [title="^Sup ::"] scratchpad show
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -168,20 +182,23 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
-        bindsym Return mode "default"
+        bindsym Return mode "default" #bindsym
         bindsym Escape mode "default"
 }
 
 gaps inner 10
 gaps outer 0
+default_border none
+default_floating_border none
 
 bindsym $mod+r mode "resize"
 bindsym $mod+Shift+t	gaps inner all set 0; gaps outer all set 0
 bindsym $mod+Shift+y	gaps inner all set 10; gaps outer all set 0
+bindsym $mod+Shift+n    border toggle
 
 for_window [class="(?i)CopyQ"] floating enable, resize set 600 700
 for_window [class="(?i)pavucontrol"] floating enable
-for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable, resize set 600 700
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -207,7 +224,12 @@ bar {
 #        status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
-        font pango:DejaVu Sans Mono 8, FontAwesome 8
+        #font pango: Noto Color Emoji 8, Bitstream Vera Serif 8
+        font pango: Noto Color Emoji 10, FuraCode Nerd Font 10, FontAwesome 10 
+        #font pango:DejaVu Sans Mono 8, FontAwesome 8
+        # font pango: Noto Color Font 8
+        
+
 #        tray_output primary
 }
 

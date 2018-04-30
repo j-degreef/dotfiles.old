@@ -91,6 +91,8 @@ fun! SetupVAM()
   call vam#ActivateAddons(["Buffergator"], {})
   call vam#ActivateAddons(["github:myusuf3/numbers.vim"], {})
   call vam#ActivateAddons(["github:Yggdroot/indentLine"], {})
+  call vam#ActivateAddons(["github:WolfgangMehner/bash-support"], {})
+
   "call vam#install#Install(["github:vim-airline/vim-airline-themes"], {})
   "call vam#install#Install(["vim-airline-themes"], {})
 endfun

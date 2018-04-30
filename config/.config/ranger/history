@@ -1,50 +1,50 @@
-rename i3blocks_battery
-cd src
-rename i3blocks_battery_1
-rename i3blocks_batterybar
+mkdir Screenshots
+rename Wallpapers
+fasd  src
+cd /etc/apt/
+rename NotoColorEmoji.ttf
+find i3v
+find no
+open_with vim
+rename 99-noto-color-emoji.conf
+rename 50-noto-color-emoji.conf
+rename 99-noto-mono-color-emoji.conf
+fasd src
+find Free
+scout -ite freet
+find harf
+find font
+find fontc
 extracthere 
-rename i3blocks_battery.py
-find downl
-chmod 744
-cd /u/b
-cd  /u/b
-delete
-cd /usr/bin/
-search modeline
-cd /usr/li
-cd /usr/share/djvu:
-cd /usr/share/doc:
-search am
-search ai
-search scout -a asp
-open_with gg
-scout -a
-scout -a ~/Con
-scout -t ~/bin
-scout -t
-scout -t Vir
-scout -it down
-rename rc.conf
-scout -it boo
-q
-source rc.conf
-scout -it ~/Doc
-
-fasd Down
-fasd 
-fasd share
-fasd -i Down
-scout -it doc
-cd  bin
-scout -it 
-find 
-shell 
-fasd /usr/share
-scout -it i3
-cd bin
-fasd bin
-rename i3blocks_batterybar.pl
-cd 
-scout -it termit
-help
+find cair²
+cd  src
+find cai
+find pan
+fasd  Down
 find Down
+find arc
+rename France 2
+find mit
+open_with 
+cd  /tmp
+find .lo
+cd /mnt
+find sr
+find ran
+rename colorschemes
+find ra
+shell 
+find du
+
+cd /usr/share/dunst/
+find .confi
+mkdir dunst
+delete
+cd 
+fasd Down
+rename ncpdcpp-config
+rename ncmpcpr-config
+A
+rename ncmpdcd-config
+rename ncmpcpp-config
+find Pic
