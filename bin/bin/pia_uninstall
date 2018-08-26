@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -rf ~/.config/PrivateInternetAccess
+rm -rf ~/.pia_manager
+rm -rf ~/.cache/PrivateInternetAccess
+rm ~/.local/share/applications/pia_manager.desktop
+sudo rm -rf /opt/pia
+

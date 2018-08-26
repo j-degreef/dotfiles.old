@@ -29,11 +29,6 @@ command=~/bin/$BLOCK_NAME
 #separator_block_width=15
 markup=pango
 
-[record]
-command=cat ~/.scripts/.recording
-interval=once
-signal=9
-
 [i3blocks_mpd]
 interval=5
 
@@ -51,9 +46,8 @@ interval=12
 #
 [i3blocks_temperature]
 #label=
-#label=🌡
+label=🌡
 #command=~/bin/i3blocks_temperature
-#separator=false
 interval=1
 
 # Memory usage
@@ -62,8 +56,8 @@ interval=1
 [i3blocks_memory]
 #label=MEM
 #command=/home/jdegreef/bin/i3blocks_memory
-label=
-#label=📉
+#label=
+label=📉
 #separator=true
 interval=1
 
@@ -223,11 +217,9 @@ signal=11
 #command=~/bin/i3blocks_calendar
 #interval=1  
 #separator=true
-[aur_updates]
-command=~/bin/i3blocks_arch_updates
-interval=3600
 
-[time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=1
+
+#[time]
+#command=date '+%Y-%m-%d %H:%M:%S'
+#interval=1
 

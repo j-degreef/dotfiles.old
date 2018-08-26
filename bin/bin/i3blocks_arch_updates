@@ -1,0 +1,22 @@
+#!/bin/bash
+#set -x
+
+sudo /usr/bin/pacman -Sy > /dev/null
+
+UPDATES=$(pacman -Qqu | sed ':a;N;$!ba;s/ /\n/g')
+
+if  [ "x$UPDATES" != "x" ]
+then
+    UPD_NB=$(echo "$UPDATES" | wc -l)
+    COLOR="#ff0000"
+else 
+    UPD_NB="0"
+    COLOR="#00ff00"
+fi
+#echo $COLOR
+#echo 🎁 ${COLOR}${UPD_NB}
+
+#printf "<span color='%s'>%s</span>\n" ${COLOR} "🎁 ${UPD_NB}";
+echo "<span color='${COLOR}'>"🎁 ${UPD_NB}"</span>"
+
+

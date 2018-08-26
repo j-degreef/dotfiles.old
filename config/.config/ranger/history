@@ -1,50 +1,50 @@
-mkdir Screenshots
-rename Wallpapers
-fasd  src
-cd /etc/apt/
-rename NotoColorEmoji.ttf
-find i3v
-find no
-open_with vim
-rename 99-noto-color-emoji.conf
-rename 50-noto-color-emoji.conf
-rename 99-noto-mono-color-emoji.conf
-fasd src
-find Free
-scout -ite freet
-find harf
-find font
-find fontc
+search
+search Down
+search MK
+find MX
+search MXQ
+extr
+cd  /mnt
+find servi
+search servio
+find servii
+search java
+cd bin
+find Alone
 extracthere 
-find cair²
-cd  src
-find cai
-find pan
-fasd  Down
-find Down
-find arc
-rename France 2
-find mit
-open_with 
+cd /boot/
+rename applications_
+rename applications
+rename applications__
 cd  /tmp
-find .lo
-cd /mnt
-find sr
-find ran
-rename colorschemes
-find ra
-shell 
-find du
-
-cd /usr/share/dunst/
-find .confi
-mkdir dunst
-delete
-cd 
+fasd  Down
+fasd Dow
+rename config-MotoG4.gz
+flat
+flat 1
+fasd  src
+cd /mnt/OS/Users/jdegreef/( Jerome )
+mkdir Windows
+fasd  xxx
+fasd Vid
 fasd Down
-rename ncpdcpp-config
-rename ncmpcpr-config
-A
-rename ncmpdcd-config
-rename ncmpcpp-config
-find Pic
+fasd Downl
+cd 
+
+find 
+shell 
+search 
+find Metz
+fasd Doc
+find Lum
+find 
+search ../
+fasd Pict
+rename digikam4.db__
+rename digikam4.db
+open_with 
+find Pict
+fasd Pctures
+fasd xxx
+fasd Vide
+delete

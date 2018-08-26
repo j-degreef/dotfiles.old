@@ -1,15 +1,16 @@
-m:/mnt/OS/Users/jdegreef/( Jerome )
-p:/home/jdegreef/Downloads
-n:/home/jdegreef/.config/nvim
-v:/home/jdegreef/.vim
 c:/home/jdegreef/.config
+d:/home/jdegreef/Downloads
+':/
+i:/home/jdegreef/.config/i3
+h:/home/jdegreef
+k:/home/jdegreef
+j:/home/jdegreef
+m:/mnt/OS/Users/jdegreef/( Jerome )
+o:/etc/grub.d
+n:/home/jdegreef/.config/nvim
+p:/home/jdegreef/Downloads
 s:/home/jdegreef/src
 r:/home/jdegreef/.config/ranger
-i:/home/jdegreef/.config/i3
 t:/home/jdegreef/.config/termite
-k:/home/jdegreef/.vim
-j:/home/jdegreef
-h:/home/jdegreef
-d:/home/jdegreef/Downloads
-':/home/jdegreef/Downloads/megasync-x86_64.pkg
-o:/home/jdegreef/eclipse-workspace_/.metadata/.plugins
+v:/home/jdegreef/.vim
+a:/home/jdegreef

@@ -16,7 +16,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango: DejaVu Sans Mono 8, FontAwesome 8, Noto Color Font 8
-font pango:FuraCode Nerd Font 10, FontAwesome 10, Noto Color Font 10
+font pango:FuraCode Nerd Font 9, FontAwesome 9, Noto Color Font 9
 #font pango: Noto Color Emoji, Bitstream Vera Serif 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -39,8 +39,7 @@ bindsym $mod+Return exec --no-startup-id termite
 bindsym $mod+n 		exec --no-startup-id termite -e ranger
 bindsym $mod+b 		exec --no-startup-id termite -e mc
 bindsym $mod+Shift+v		exec --no-startup-id termite -e nvim
-#bindsym $mod+w		exec --no-startup-id firefox
-bindsym $mod+w		exec --no-startup-id waterfox
+bindsym $mod+w		exec --no-startup-id firefox
 bindsym $mod+g		exec --no-startup-id gimp; workspace $workspaces5
 bindsym $mod+c		exec --no-startup-id copyq toggle
 
@@ -50,6 +49,8 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show run -opacity "80"
+# Windows switcher
+bindsym mod1+Tab exec rofi -show window -opacity "80"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -114,8 +115,8 @@ set $workspace4 "4 IRC #"
 set $workspace9 "9 Music ♪"
 set $workspace10 "10 Tools "
 
-#assign [class="Firefox"] $workspace2
-assign [class="Waterfox"] $workspace2
+assign [class="Firefox"] $workspace2
+#assign [class="Waterfox"] $workspace2
 #assign [name="WeeChat"] $workspace10
 assign [class="KeePass2"] $workspace10
 assign [class="Clementine"] $workspace9
@@ -198,6 +199,7 @@ bindsym $mod+Shift+n    border toggle
 
 for_window [class="(?i)CopyQ"] floating enable, resize set 600 700
 for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="ncpamixer"] floating enable, resize set 600 400
 for_window [class="Xfce4-appfinder"] floating enable, resize set 600 700
 
 # Pulse Audio controls
@@ -213,19 +215,26 @@ bindsym XF86MonBrightnessDown exec acpilight -dec 20 # decrease screen brightnes
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86AudioPlay  exec mpc toggle
+# bindsym XF86AudioPause exec mpc pause
+bindsym XF86AudioStop  exec mpc stop
+bindsym XF86AudioNext  exec mpc next
+bindsym XF86AudioPrev  exec mpc prev
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 #        status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        #status_command conky
         position top
         #font pango: Noto Color Emoji 8, Bitstream Vera Serif 8
-        font pango: Noto Color Emoji 10, FuraCode Nerd Font 10, FontAwesome 10 
+        font pango: Noto Color Emoji 9, FuraCode Nerd Font 9, FontAwesome 9 
         #font pango:DejaVu Sans Mono 8, FontAwesome 8
         # font pango: Noto Color Font 8
         
@@ -235,12 +244,14 @@ bar {
 
 # Lock
 #bindsym $mod+Shift+x exec i3lock -d
-bindsym $mod+Shift+x exec xautolock -locknow
+#bindsym $mod+Shift+x exec xautolock -locknow
+bindsym $mod+Shift+x exec i3_lock
 # Suspend
 #bindsym $mod+Shift+s exec i3lock -d ; exec systemctl suspend
-bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
+#bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
+bindsym $mod+Shift+s exec i3_lock ; exec systemctl suspend
 
-bindsym $mod+Shift+f exec xfce4-appfinder
+#bindsym $mod+Shift+f exec xfce4-appfinder
 
 # For numlock/capslock i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -267,17 +278,20 @@ exec --no-startup-id termite
 exec --no-startup-id termite
 exec --no-startup-id termite
 exec_always --no-startup-id xautolock.sh
+#exec_always --no-startup-id xautolock -detectsleep \
+#  -time 1 -locker i3_lock -notify 30 \
+#  -notifier "play -n synth 0.1 sin 1090 || echo -e "\a" ; notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
 exec_always --no-startup-id numlockx on
 exec --no-startup-id dunst
 exec --no-startup-id ~/bin/pia
-# exec --no-startup-id compton -f
+exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -t
 exec --no-startup-id keepass2
 exec --no-startup-id copyq
 exec --no-startup-id megasync
-exec --no-startup-id dropbox start
-exec --no-startup-id pasystray
-exec --no-startup-id hp-systray
+#exec --no-startup-id dropbox start
+#exec --no-startup-id pasystray
+#exec --no-startup-id hp-systray
 
 # vim:filetype=i3

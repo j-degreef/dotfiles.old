@@ -8,12 +8,6 @@ case $- in
       *) return;;
 esac
 
-export EDITOR=nvim
-export DEFAULT_EDITOR=nvim
-export ANDROID_HOME=/home/jdegreef/Android/Sd
-export ANDROID_NDK=/home/jdegreef/Android/Sdk/ndk-bundle
-# source /etc/profile.d/jdk.sh
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignorespace:ignoredups:erasedups
@@ -217,14 +211,25 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
-# Mysql java driver
-export CLASSPATH=/home/jdegreef/Android/Sdk/mysql-connector-java-5.1.46:$CLASSPATH
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 my_title
 
-export TERMINAL="urxvt"
+
+#export TERMINAL="urxvt"
+export TERMINAL="termite"
+#export TERM="termite"
 export VISUAL="vim"
+export ANDROID_HOME="/opt/android-sdk"
+export EDITOR=nvim
+export DEFAULT_EDITOR=nvim
+#export PAGER='vimpager'
+#alias less=$PAGER
+#alias zless=$PAGER
+# Mysql java driver
+export CLASSPATH=/opt/java/mysql-connector-java-5.1.46:$CLASSPATH
+# source /etc/profile.d/jdk.sh
+
 
 # vim: ts=2 sw=0 et fdm=marker
