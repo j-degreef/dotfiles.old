@@ -1,187 +1,16 @@
-# ~/.bashrc: executed by bash(0) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+#
+# ~/.bashrc
+#
 
+#{{{ Misc
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignorespace:ignoredups:erasedups
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+[[ $- != *i* ]] && return
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# jdegr set command as term title
-# Please note if use $BASH_COMMAND, it don't recognize bash alias, and use PROMPT_COMMAND show finished command, but use trap show running command.
-# https://stackoverflow.com/questions/5076127/bash-update-terminal-title-by-running-a-second-command/5080670#5080670
-#export PROMPT_COMMAND='echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"'
-#trap 'echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"' DEBUG
-#trap 'echo -ne "\e]0;"; echo -n $BASH_COMMAND; echo -ne "\a"' DEBUG
-# trap 'echo -ne "\033]2;`whoami`@`hostname` `pwd` $(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"' DEBUG
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm|xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
-    else
-    color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    if [[ ${EUID} == 0 ]] ; then
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
-    else
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \$\[\033[00m\] '
-    fi
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*e)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# Functions {{{
-my_title(){
-case "$TERM" in
-xterm*|rxvt*)
-    # Show the currently running command in the terminal title:
-    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
-    show_command_in_title_bar()
-    {
-        case "$BASH_COMMAND" in
-            *\033]0*)
-                # The command is trying to set the title bar as well;
-                # this is most likely the execution of $PROMPT_COMMAND.
-                # In any case nested escapes confuse the terminal, so don't
-                # output them.
-                ;;
-            *)
-                PWD=`pwd`
-                _PWD=${PWD/#$HOME/'~'}
-                echo -ne "\033]0;[${USER}@${HOSTNAME}:$_PWD] $ ${BASH_COMMAND}\007"
-                ;;
-        esac
-    }
-    trap show_command_in_title_bar DEBUG
-    ;;
-*)
-    ;;
-esac
-}
-
-wal-tile() {
-    wal -n -i "$@"
-    feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
-}
-
-wttr()
-{
-    # change Paris to your default location
-    curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Brussels?M&m}"
-}
-# }}}
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-if [ -x /usr/bin/mint-fortune ]; then
-     /usr/bin/mint-fortune
-fi
-
-# jdegr make mc quit in current directory
-alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
-
-# Make ranger work in 256 colors in tmux
-#alias ranger='TERM=xterm-256color ranger'
-#alias ranger='TERM=rxvt-unicode-256color ranger'
-
-# Use nvim instead of vim
-alias vim="nvim"
+shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
 
 # jdegr control-s is used by bash forward history search
 # but is mapping by default to scroll lock
@@ -191,32 +20,76 @@ then
   stty -ixon
 fi
 
-# jdegr for Powerline status
-#if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-#    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-#fi
+#}}}
 
-# Liquidprompt
-source ~/bin/liquidprompt
+# Prompt {{{
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm|xterm-termite|xterm-color|*-256color) color_prompt=yes;;
+esac
 
-# fasd
-#source ~/bin/fasd
-eval "$(fasd --init auto)"
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias zz='fasd_cd -d -i' # cd with interactive selection
+if [ "$color_prompt" = yes ]; then
+    if [[ ${EUID} == 0 ]] ; then
+        PS1='\[\033[01;31;1m\]\u@\h\[\033[00m\] \[\033[01;34m\][\w] \$\[\033[00m\] '
+    else
+        PS1='\[\033[01;36;1m\]\u@\h\[\033[00m\] \[\033[01;34m\][\w] \$\[\033[00m\] '
+    fi
+else
+    PS1='[\u@\h \w]\$ '
+fi
+unset color_prompt
+# }}}
 
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# History {{{
+# jdegr add history for multiple terminal
+# Consistent and forever bash history
+HISTSIZE=100000
+HISTFILESIZE=$HISTSIZE
+HISTCONTROL=ignorespace:ignoredups
 
-my_title
+_bash_history_sync() {
+  builtin history -a         #1
+  HISTFILESIZE=$HISTSIZE     #2
+}
 
+_bash_history_sync_and_reload() {
+  builtin history -a         #1
+  HISTFILESIZE=$HISTSIZE     #2
+  builtin history -c         #3
+  builtin history -r         #4
+}
 
+history() {                  #5
+  _bash_history_sync_and_reload
+  builtin history "$@"
+}
+
+export HISTTIMEFORMAT="%y/%m/%d %H:%M:%S   "
+PROMPT_COMMAND='history 1 >> ${HOME}/.bash_eternal_history'
+PROMPT_COMMAND=_bash_history_sync;$PROMPT_COMMAND
+# }}}
+
+#{{{ Liquidprompt
+if [[ ! ${EUID} == 0 ]] ; then source ~/bin/liquidprompt ; fi
+#}}}
+
+#{{{ fzf (disabled)
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#}}}
+
+#{{{ fasd (disabled)
+#eval "$(fasd --init auto)"
+#alias a='fasd -a'        # any
+#alias s='fasd -si'       # show / search / select
+#alias d='fasd -d'        # directory
+#alias f='fasd -f'        # file
+#alias sd='fasd -sid'     # interactive directory selection
+#alias sf='fasd -sif'     # interactive file selection
+#alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+#alias zz='fasd_cd -d -i' # cd with interactive selection
+#}}}
+
+#{{{ Exports
 #export TERMINAL="urxvt"
 export TERMINAL="termite"
 #export TERM="termite"
@@ -224,12 +97,65 @@ export VISUAL="vim"
 export ANDROID_HOME="/opt/android-sdk"
 export EDITOR=nvim
 export DEFAULT_EDITOR=nvim
-#export PAGER='vimpager'
-#alias less=$PAGER
-#alias zless=$PAGER
 # Mysql java driver
 export CLASSPATH=/opt/java/mysql-connector-java-5.1.46:$CLASSPATH
 # source /etc/profile.d/jdk.sh
+#}}}
 
+#{{{ dircolors
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
+#}}}
+
+#{{{ Aliases
+# System Maintainence
+alias mw="~/.config/mutt/mutt-wizard.sh"
+alias muttwizard="~/.config/mutt/mutt-wizard.sh"
+alias progs="(pacman -Qet && pacman -Qm) | sort -u" # List programs I've installed
+alias orphans="pacman -Qdt" # List orphan programs
+alias sdn="sudo shutdown now"
+alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
+
+# Some aliases
+alias ls='ls --color=auto'
+alias p="sudo pacman"
+alias SS="sudo systemctl"
+alias v="vim"
+alias nv="nvim"
+alias sv="sudo vim"
+alias snv="sudo nvim"
+alias r="ranger"
+alias sr="sudo ranger"
+alias ka="killall"
+alias g="git"
+alias trem="transmission-remote"
+alias mkd="mkdir -pv"
+alias ref="shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
+alias bw="wal -i ~/.config/wall.png" # Rerun pywal
+alias pi="bash ~/.larbs/wizard/wizard.sh"
+
+# Adding color
+alias ls='ls -hN --color=auto --group-directories-first'
+alias grep="grep --color=auto" # Color grep - highlight desired sequence.
+alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
+
+# Internet
+alias yt="youtube-dl --add-metadata -ic" # Download video link
+alias yta="youtube-dl --add-metadata -xic" # Download only audio
+alias YT="youtube-viewer"
+alias ethspeed="speedometer -r enp0s25"
+alias wifispeed="speedometer -r wlp3s0"
+alias starwars="telnet towel.blinkenlights.nl"
+
+source ~/.shortcuts
+#}}}
 
 # vim: ts=2 sw=0 et fdm=marker
