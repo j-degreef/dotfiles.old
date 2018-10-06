@@ -155,7 +155,7 @@ alias ethspeed="speedometer -r enp0s25"
 alias wifispeed="speedometer -r wlp3s0"
 alias starwars="telnet towel.blinkenlights.nl"
 
-source ~/.shortcuts
+#source ~/.shortcuts
 #}}}
 
 # vim: ts=2 sw=0 et fdm=marker
