@@ -2,7 +2,7 @@
 
 width=200
 height=200
-datefmt="+%a %d.%m.%Y %H:%M:%S"
+datefmt="+%d.%m.%Y | %H:%M:%S"
 
 OPTIND=1
 while getopts ":f:W:H:" opt; do
@@ -26,13 +26,13 @@ case "$BLOCK_BUTTON" in
 
 	# the position of the upper left corner of the popup
 	posX=$(($BLOCK_X - $width / 2))
-	posY=$(($BLOCK_Y - $height))
+    posY=$(($BLOCK_Y+20)) #- $height * 3))
 
 	i3-msg -q "exec yad --calendar \
         --width=$width --height=$height \
 	    --undecorated --fixed \
 	    --close-on-unfocus --no-buttons \
-	    --posx=$posX --posy=$posY \
+	    --posx=$posX --posy=$posY --splash --on-top \
 	    > /dev/null"
 esac
 date "$datefmt"

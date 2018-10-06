@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# i3blocks module for pacman upgrades.
+# Displays number of upgradeable packages.
+# For this to work, have a `pacman -Sy` command run in the background as a
+# cronjob every so often as root. This script will then read those packages.
+# When clicked, it will run an upgrade via `yay`. (`yay` required, duh.)
+
+case $BLOCK_BUTTON in
+    1) yay --color never -Qu | sort | rofi -theme-str '#inputbar { enabled: false; }' -dmenu -show ;;
+    3) termite -e "bash -c 'yay -Syu && pacman -Qu | wc -l > ~/.pacupgrnum && read -e -p \"Press [Enter] to continue\"'" ;;
+esac
+
+#pacman -Qu | wc -l | sed -e '/^0$/d' > ~/.pacupgrnum
+yay --color never -Qu | wc -l | sed -e '/^0$/d' > ~/.pacupgrnum
+
+sed -e "/^$/d" /home/jdegreef/.pacupgrnum
+
+pkill -RTMIN+8 i3blocks
+
