@@ -36,9 +36,9 @@ floating_modifier mod1
 bindsym $mod+Return exec --no-startup-id termite
 
 # Exec programs
-bindsym $mod+n 		exec --no-startup-id termite -e ranger
+bindsym Mod1+r 		exec --no-startup-id termite -e ranger
 bindsym $mod+b 		exec --no-startup-id termite -e mc
-bindsym $mod+Shift+v		exec --no-startup-id termite -e nvim
+bindsym Mod1+v		exec --no-startup-id termite -e nvim
 bindsym $mod+w		exec --no-startup-id firefox
 bindsym $mod+g		exec --no-startup-id gimp; workspace $workspaces5
 bindsym $mod+c		exec --no-startup-id copyq toggle
@@ -230,7 +230,7 @@ bindsym XF86AudioPrev  exec mpc prev
 # finds out, if available)
 bar {
 #        status_command i3status
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3blocks -v -v -v -v -c ~/.config/i3/i3blocks.conf 2>~/i3.log
         #status_command conky
         position top
         #font pango: Noto Color Emoji 8, Bitstream Vera Serif 8
@@ -245,11 +245,11 @@ bar {
 # Lock
 #bindsym $mod+Shift+x exec i3lock -d
 #bindsym $mod+Shift+x exec xautolock -locknow
-bindsym $mod+Shift+x exec i3_lock
+bindsym $mod+Shift+x exec xautolock -locknow
 # Suspend
 #bindsym $mod+Shift+s exec i3lock -d ; exec systemctl suspend
 #bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
-bindsym $mod+Shift+s exec i3_lock ; exec systemctl suspend
+bindsym $mod+Shift+s exec xautolock -locknow && exec systemctl suspend
 
 #bindsym $mod+Shift+f exec xfce4-appfinder
 
@@ -260,6 +260,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # Touchpad config
 exec --no-startup-id syndaemon -i 0.2 -d
 exec --no-startup-id synclient TapButton3=2
+exec --no-startup-id synclient ClickFinger3=2
 exec --no-startup-id synclient PalmDetect=1
 exec --no-startup-id synclient HorizTwoFingerScroll=1
 exec --no-startup-id synclient HorizHysteresis=50 VertHysteresis=50
@@ -278,16 +279,13 @@ exec --no-startup-id termite
 exec --no-startup-id termite
 exec --no-startup-id termite
 exec_always --no-startup-id xautolock.sh
-#exec_always --no-startup-id xautolock -detectsleep \
-#  -time 1 -locker i3_lock -notify 30 \
-#  -notifier "play -n synth 0.1 sin 1090 || echo -e "\a" ; notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
 exec_always --no-startup-id numlockx on
 exec --no-startup-id dunst
 exec --no-startup-id ~/bin/pia
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -t
-exec --no-startup-id keepass2
+exec --no-startup-id keepass
 exec --no-startup-id copyq
 exec --no-startup-id megasync
 #exec --no-startup-id dropbox start

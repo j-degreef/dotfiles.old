@@ -1,5 +1,6 @@
 " Remove ALL auto-commands.  This avoids having the
 " autocommands twice when the vimrc file is sourced again.
+
 autocmd!
 
 " Vundle Plugin Manager {{{

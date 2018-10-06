@@ -1,6 +1,6 @@
 c:/home/jdegreef/.config
 d:/home/jdegreef/Downloads
-':/
+':/home/jdegreef
 i:/home/jdegreef/.config/i3
 h:/home/jdegreef
 k:/home/jdegreef
@@ -12,5 +12,6 @@ p:/home/jdegreef/Downloads
 s:/home/jdegreef/src
 r:/home/jdegreef/.config/ranger
 t:/home/jdegreef/.config/termite
-v:/home/jdegreef/.vim
-a:/home/jdegreef
+v:/home/jdegreef/.config/nvim
+a:/home/jdegreef/.cache/yay
+V:/home/jdegreef/Videos
