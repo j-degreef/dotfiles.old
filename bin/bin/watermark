@@ -4,20 +4,20 @@
 savedir=".originals"
 mkdir $savedir
 
-if [ $? -ne 0 ] ; then
-  echo "Error: failed making $savedir."
-  exit 1
-fi
+#if [ $? -ne 0 ] ; then
+#  echo "Error: failed making $savedir."
+#  exit 1
+#fi
 
 for image in *png *jpg *gif *.PNG P*.JPG *.GIF
 do
- if [ -s $image ] ; then   # non-zero file size
-    width=$(identify -format %w $image)
+ if [ -s "$image" ] ; then   # non-zero file size
+    width=$(identify -format %w "$image")
     convert -background '#0008' -fill white -gravity center \
-       -size ${width}x30 caption:"Grumiaux - Fracture porte chaufferie 20180408" \
-       $image +swap -gravity south -composite new-$image
-     mv $image $savedir
-     mv new-$image $image
+       -size ${width}x30 caption:"Décharge illégale zone Natura 2000" \
+       "$image" +swap -gravity south -composite new-"$image"
+     mv "$image" $savedir
+     mv new-"$image" "$image"
     echo "watermarked $image successfully"
   fi
 done
