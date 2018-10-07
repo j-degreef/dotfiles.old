@@ -230,7 +230,7 @@ bindsym XF86AudioPrev  exec mpc prev
 # finds out, if available)
 bar {
 #        status_command i3status
-        status_command i3blocks -v -v -v -v -c ~/.config/i3/i3blocks.conf 2>~/i3.log
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf 
         #status_command conky
         position top
         #font pango: Noto Color Emoji 8, Bitstream Vera Serif 8
