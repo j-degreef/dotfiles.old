@@ -1,16 +1,8 @@
-rename Attetation 6%%.pdf
-rename Devis vannes Deridder.pdf
-fasd Docu
-fasd Pict
-find The
-find The so
 fasd Vide
 rename Christophe Andre
 help
 mkdir Christophe André
-cd  src
 rename .bashrc.old
-rename .bashrc
 fasd Down
 cd /h/j
 cd /var/log
@@ -27,7 +19,6 @@ cd  ~/bin
 rename i3blocks_bandwidth_wifi
 !chmod u+x
 ! chmod u+x
-shell chmod u+x
 rename i3blocks_bandwidth_eth0
 fasd bin
 cff
@@ -42,9 +33,18 @@ rename .dircolors__
 rename .dircolors
 open_with :q
 rename commands.py
-cd 
 rename .dircolors_
 rename .pia_manager
-delete
 
 shell ²²
+rename Demain.2015.FRENCH.BDRip.x264-SVR.mkv
+rename Demain.2015.FRENCH.BDRip.x264-SVR.srt
+shell chmod u+x
+rename .bashrc___
+wq²²²a
+rename .bashrc
+cd 
+cd  src
+rename jdg_i3blocks
+delete
+rename i3blocks_jdg
