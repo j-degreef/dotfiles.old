@@ -141,6 +141,7 @@ alias mkd="mkdir -pv"
 alias ref="shortcuts.sh && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
 alias pi="bash ~/.larbs/wizard/wizard.sh"
+alias feh="feh --image-bg black -."
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -155,7 +156,8 @@ alias ethspeed="speedometer -r enp0s25"
 alias wifispeed="speedometer -r wlp3s0"
 alias starwars="telnet towel.blinkenlights.nl"
 
-#source ~/.shortcuts
+source ~/.shortcuts
 #}}}
 
 # vim: ts=2 sw=0 et fdm=marker
+
