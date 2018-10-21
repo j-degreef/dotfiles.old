@@ -1,50 +1,50 @@
-fasd Vide
-rename Christophe Andre
-help
-mkdir Christophe André
-rename .bashrc.old
-fasd Down
-cd /h/j
-cd /var/log
-cd /usr/lib/sysusers.d/
-cd  ~/src
-search cd /var
-cd /var
-wq
-rename i3blocks_eth0
-rename i3blocks.conf__
-rename i3blocks.conf_
-rename i3blocks.conf
-cd  ~/bin
-rename i3blocks_bandwidth_wifi
-!chmod u+x
-! chmod u+x
-rename i3blocks_bandwidth_eth0
-fasd bin
-cff
-gcff
-open_with 
-open_with 'r
-q
-rename De Greef - Devis vannes Deridder - signé.pdf
-rename Salah - Devis vannes Deridder.jpg
-rename .dircolors.
-rename .dircolors__
-rename .dircolors
-open_with :q
-rename commands.py
-rename .dircolors_
-rename .pia_manager
-
-shell ²²
-rename Demain.2015.FRENCH.BDRip.x264-SVR.mkv
-rename Demain.2015.FRENCH.BDRip.x264-SVR.srt
-shell chmod u+x
-rename .bashrc___
-wq²²²a
-rename .bashrc
-cd 
-cd  src
 rename jdg_i3blocks
-delete
 rename i3blocks_jdg
+rename 20181001.pdf
+bulkrename
+search 
+deleted
+find Psy
+shell 
+cd ranger
+open_with 
+cd  ranger
+cd Pictures/
+cd  Pict
+cd  Pictures
+find Pict
+find ncm
+find mpd
+open_with  
+mkdir .lyrics
+cd  /tmp
+
+rename cover.jpg
+source rc.conf
+help
+find digikam
+rename digikam4.db___
+find .loc
+find digi
+rename ranger.desktop__
+rename ranger.desktop
+find polk
+find kde
+find pac
+find twrp
+find xx
+mkdir (2018) Mon Pays c'est l'Amour
+rename (2018) Mon pays c'est l'amour
+find sr
+rename ranger.sav
+rename ranger
+cd  lib/python3.7/site-packages/ranger/config/
+rename commands_full.py
+cd  src
+cd /home/jdegreef/src/ranger
+cd 
+mkdir ranger-jdegr
+shell p 
+rename ranger-jdegr
+extracthere 
+delete
