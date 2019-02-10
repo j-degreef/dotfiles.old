@@ -118,7 +118,7 @@ set $workspace10 "10 Tools "
 assign [class="Firefox"] $workspace2
 #assign [class="Waterfox"] $workspace2
 #assign [name="WeeChat"] $workspace10
-assign [class="KeePass2"] $workspace10
+assign [class="Bitwarden"] $workspace10
 assign [class="Clementine"] $workspace9
 assign [class="Synaptic"] $workspace10
 assign [class="Synaptic"] $workspace10
@@ -252,7 +252,12 @@ bindsym $mod+Shift+x exec xautolock -locknow
 #bindsym $mod+Shift+s exec xautolock -locknow ; exec systemctl suspend
 bindsym $mod+Shift+s exec xautolock -locknow && exec systemctl suspend
 
-#bindsym $mod+Shift+f exec xfce4-appfinder
+#bindsym $mod+Shift+p exec screenshot.sh
+bindsym $mod+Shift+p exec scrot
+bindsym $mod+Shift+v exec screencast
+#bindsym Ctrl+Shift+v exec killrecording
+
+bindsym $mod+Shift+f exec xfce4-appfinder
 
 # For numlock/capslock i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -266,6 +271,9 @@ exec --no-startup-id synclient PalmDetect=1
 exec --no-startup-id synclient HorizTwoFingerScroll=1
 exec --no-startup-id synclient HorizHysteresis=50 VertHysteresis=50
 
+#dpms
+exec --no-startup-id xset dpms 900 0 0
+
 # Startup programs
 exec --no-startup-id ./.fehbg
 exec --no-startup-id i3-msg 'workspace $workspace1; append_layout ~/.config/i3/wp_1.json'
@@ -276,17 +284,18 @@ exec --no-startup-id i3-msg 'workspace $workspace1; append_layout ~/.config/i3/w
 #exec --no-startup-id terminator
 #exec --no-startup-id terminator
 #exec --no-startup-id terminator
-exec --no-startup-id termite
-exec --no-startup-id termite
-exec --no-startup-id termite
+exec --no-startup-id termite --name 1
+exec --no-startup-id termite --name 2
+exec --no-startup-id termite --name 3
 exec_always --no-startup-id xautolock.sh
 exec_always --no-startup-id numlockx on
 exec --no-startup-id dunst
-exec --no-startup-id ~/bin/pia
+#for_window [title="Connect" class="privateinternetaccess"] kill
+exec  --no-startup-id pia_startup
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -t
-exec --no-startup-id keepass
+#exec --no-startup-id bitwarden
 exec --no-startup-id copyq
 exec --no-startup-id megasync
 #exec --no-startup-id dropbox start

@@ -25,9 +25,9 @@ rm -f "$shell_shortcuts" "$ranger_shortcuts" "$qute_shortcuts"
 (grep "config.source('shortcuts.py')" "$HOME/.config/qutebrowser/config.py")>/dev/null || echo "config.source('shortcuts.py')" >> "$HOME/.config/qutebrowser/config.py"
 
 # Format the `folders` file in the correct syntax and sent it to all three configs.
-sed "s/#.*$//;/^$/d" "$folders" | tee >(awk '{print "alias "$1"=\"cd "$2" && ls -a\""}' >> "$shell_shortcuts") \
-	>(awk '{print "config.bind(\";"$1"\", \"set downloads.location.directory "$2" ;; hint links download\")"}' >> "$qute_shortcuts") \
-	| awk '{print "map g"$1" cd "$2"\nmap t"$1" tab_new "$2"\nmap m"$1" shell mv -v %s "$2"\nmap Y"$1" shell cp -rv %s "$2}' >> "$ranger_shortcuts"
+sed "s/#.*$//;/^$/d" "$folders" | tee >(awk -F ": " '{print "alias g"$1"=\"cd "$2" && ls -a\""}' >> "$shell_shortcuts") \
+	>(awk -F ": " '{print "config.bind(\";"$1"\", \"set downloads.location.directory "$2" ;; hint links download\")"}' >> "$qute_shortcuts") \
+	| awk -F ": " '{print "map g"$1" cd "$2"\nmap t"$1" tab_new "$2"\nmap m"$1" shell mv -v %s "$2"\nmap Y"$1" shell cp -rv %s "$2}' >> "$ranger_shortcuts"
 
 # Format the `configs` file in the correct syntax and sent it to both configs.
 sed "s/#.*$//;/^$/d"  "$configs" | tee >(awk '{print "alias "$1"=\"$EDITOR "$2"\""}' >> "$shell_shortcuts") \

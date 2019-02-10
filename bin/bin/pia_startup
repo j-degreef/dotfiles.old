@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#pia && sleep 3 && xdotool windowactivate "$(xdotool search --class privateinternetaccess | tail -1)" key Super_L+Shift+a
+pia
+
+until wmctrl -l | grep "Connect — Private Internet Access" &>/dev/null ; do sleep 0.01 ; done
+
+i3-msg  [title="Connect" class="privateinternetaccess"] kill
+

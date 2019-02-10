@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ruby /home/jdegreef/src/drivesync/drivesync.rb $@

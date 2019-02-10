@@ -75,8 +75,10 @@ let mapleader="<"
 nnoremap <C-Home> gg
 nnoremap <C-End> G<End>
 inoremap <C-Home> <Esc>ggi
-inoremap <C-End> <Esc>G<End>i
-vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
+inoremap <C-End> <Esc>G<End>A
+vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
+nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>P
+imap <C-v> <Esc>:call setreg("\"",system("xclip -o -selection clipboard"))<CR>pA
 " Clear search hilight
 nnoremap <Leader><space> :noh<cr>
 "}}}

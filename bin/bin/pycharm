@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ~/pycharm-community-2018.3/bin/
+./pycharm.sh

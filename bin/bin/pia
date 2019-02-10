@@ -1,3 +1,5 @@
 #!/bin/sh
 
-/opt/pia/run.sh > /dev/null 2>&1 &
+#/opt/pia/run.sh > /dev/null 2>&1 &
+
+/opt/piavpn/bin/pia-client > /dev/null 2>&1 &

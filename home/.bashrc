@@ -128,10 +128,14 @@ alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 alias ls='ls --color=auto'
 alias p="sudo pacman"
 alias SS="sudo systemctl"
-alias v="vim"
+alias vim="nvim"
+alias v="/usr/bin/vim"
 alias nv="nvim"
-alias sv="sudo vim"
+alias sv="sudo /usr/bin/vim"
 alias snv="sudo nvim"
+#alias mutt="neomutt"
+alias m="mutt"
+alias nm="neomutt"
 alias r="ranger"
 alias sr="sudo ranger"
 alias ka="killall"
@@ -161,3 +165,4 @@ source ~/.shortcuts
 
 # vim: ts=2 sw=0 et fdm=marker
 
+alias config='/usr/bin/git --git-dir=/home/jdegreef/.cfg.git/ --work-tree=/home/jdegreef'
